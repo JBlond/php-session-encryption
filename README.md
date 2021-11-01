@@ -2,6 +2,14 @@
 
 Encrypt the session data for PHP
 
+## install
+
+```shell
+composer require jblond/session
+```
+
+## use
+
 ```PHP
 <?php
 
