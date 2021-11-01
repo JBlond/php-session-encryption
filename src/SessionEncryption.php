@@ -113,12 +113,12 @@ class SessionEncryption implements SessionHandlerInterfaceAlias
     {
         $result = '';
         $string = base64_decode($string);
-        $lentgh = strlen($string);
+        $length = strlen($string);
 
-        for($i = 0; $i < $lentgh; $i++) {
+        for($i = 0; $i < $length; $i++) {
             $char = $string[$i];
-            $keychar = $key[($i % strlen($key)) - 1];
-            $char = chr(ord($char) - ord($keychar));
+            $keyChar = $key[($i % strlen($key)) - 1];
+            $char = chr(ord($char) - ord($keyChar));
             $result .= $char;
         }
         return $result;
