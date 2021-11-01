@@ -1,0 +1,29 @@
+{
+    "name": "jblond/session",
+    "type": "library",
+    "authors": [
+        {
+            "name": "JBlond",
+            "email": "leet31337@web.de"
+        }
+    ],
+    "require": {
+        "php": ">=7.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "jblond\\session\\": "src"
+        }
+    },
+    "config": {
+        "classmap-authoritative": true
+    },
+    "scripts": {
+        "post-install-cmd": [
+            "composer dump-autoload -a"
+        ],
+        "post-update-cmd": [
+            "composer dump-autoload -a"
+        ]
+    }
+}
