@@ -82,27 +82,27 @@ class SessionEncryption implements SessionHandlerInterfaceAlias
     }
 
     /**
-     * @param string $session_id
+     * @param string $id
      * @return string
      */
-    public function read($session_id): string
+    public function read($id): string
     {
-        if(!file_exists($this->save_path . '/sess_' . $session_id)){
-            file_put_contents($this->save_path . '/sess_' . $session_id, '');
+        if(!file_exists($this->save_path . '/sess_' . $id)){
+            file_put_contents($this->save_path . '/sess_' . $id, '');
         }
-        $data = file_get_contents($this->save_path . '/sess_' . $session_id);
+        $data = file_get_contents($this->save_path . '/sess_' . $id);
         return $this->decrypt($data, $this->key);
     }
 
     /**
-     * @param string $session_id
-     * @param string $session_data
+     * @param string $id
+     * @param string $data
      * @return bool
      */
-    public function write($session_id, $session_data): bool
+    public function write($id, $data): bool
     {
-        $data = $this->encrypt($session_data, $this->key);
-        return !(file_put_contents($this->save_path . '/sess_' . $session_id, $data) === false);
+        $sessionData = $this->encrypt($data, $this->key);
+        return !(file_put_contents($this->save_path . '/sess_' . $id, $sessionData) === false);
     }
 
     /**
