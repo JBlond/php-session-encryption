@@ -75,9 +75,8 @@ class SessionEncryption implements SessionHandlerInterfaceAlias
         }
         $this->save_path = $path;
         if(!is_dir($this->save_path) && !mkdir($concurrentDirectory = $this->save_path) && !is_dir($concurrentDirectory)) {
-            throw new RuntimeException(sprintf('Directory "%s" was not created', $concurrentDirectory));
+            throw new RuntimeException(sprintf('Directory "%s" was not created for %s', $concurrentDirectory, $name));
         }
-        session_name($name);
         return true;
     }
 
