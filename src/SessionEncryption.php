@@ -70,8 +70,8 @@ class SessionEncryption implements SessionHandlerInterfaceAlias
      */
     public function open($path, $name): bool
     {
-        if($path == ''){
-            $path = './';
+        if($path === ''){
+            $path = './tmp';
         }
         $this->save_path = $path;
         if(!is_dir($this->save_path) && !mkdir($concurrentDirectory = $this->save_path) && !is_dir($concurrentDirectory)) {
